@@ -30,6 +30,14 @@
 		<connection>scm:git:git://github.com/amihaiemil/jakartaee-issue-reporter.git</connection>
 		<developerConnection>scm:git:git@github.com:amihaiemil/jakartaee-issue-reporter.git</developerConnection>
 	</scm>
+	<dependencies>
+		<dependency>
+		    <groupId>javax.enterprise</groupId>
+		    <artifactId>cdi-api</artifactId>
+		    <version>2.0</version>
+		</dependency>
+		 
+	</dependencies>
 	<build>
 		<resources>
 			<resource>

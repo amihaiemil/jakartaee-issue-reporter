@@ -25,12 +25,37 @@
  */
 package com.amihaiemil.jir;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.interceptor.InterceptorBinding;
+
 /**
- * Report an Issue to Github.
+ * Report an Issue to Github. Annotate a method or a class (all the classes'
+ * public methods will be intercepted then) with this annotation and
+ * any thrown Exception will automatically be reported as a new Issue in
+ * your project's Github repository.
  * @author Mihai Andronache (amihaiemil@gmail.com)
  * @version $Id$
  * @since 0.0.1
  */
-public @interface Github {
+@InterceptorBinding
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD})
+public @interface GithubWatcher {
 
+    /**
+     * Should the exception be rethrown or swallowed?
+     * @return True or False. Default is True.
+     */
+    boolean rethrow() default true;
+    
+    /**
+     * Should the exception be logged or not? If this is set
+     * to false, then rethrowing becomes mandatory!
+     * @return True or False. Default is True.
+     */
+    boolean log() default true;
 }
