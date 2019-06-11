@@ -42,8 +42,8 @@ import javax.interceptor.InvocationContext;
  *  from the environment and opens a Github ticket.
  * @todo #6:30min Implement logging sing slf4J. If the annotation's
  *  "log" flag is set to true, the exception should be logged. Also,
- *   it shouldn't be possible to have both "rethrow" and "log" set to
- *   false (the exception would completely be swalloed.
+ *  it shouldn't be possible to have both "rethrow" and "log" set to
+ *  false (the exception would completely be swalloed.
  */
 @GithubWatcher
 @Interceptor
